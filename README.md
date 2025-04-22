@@ -1,1 +1,1 @@
-# north-georgia-biker-map
+Placeholder for README.md
