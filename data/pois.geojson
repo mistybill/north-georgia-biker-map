@@ -3,16 +3,48 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "name": "Helton Creek Falls",
-        "type": "waterfall",
-        "description": "A scenic stop with hiking and photo ops."
-      },
       "geometry": {
         "type": "Point",
-        "coordinates": [-83.858, 34.751]
+        "coordinates": [-83.9156, 34.7011]
+      },
+      "properties": {
+        "name": "Misty Mountain Inn & Cottages",
+        "description": "Basecamp for your North Georgia riding adventures.",
+        "type": "inn"
       }
-    }
-    // More POIs...
-  ]
-}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.7312, 34.7283]
+      },
+      "properties": {
+        "name": "Helton Creek Falls",
+        "description": "Popular scenic waterfall with a short hike.",
+        "type": "waterfall"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.7102, 34.8701]
+      },
+      "properties": {
+        "name": "Vogel State Park Fuel",
+        "description": "Nearest gas stop near Vogel Park for riders.",
+        "type": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.9421, 34.7671]
+      },
+      "properties": {
+        "name": "DeSoto Falls",
+        "description": "
+
+
