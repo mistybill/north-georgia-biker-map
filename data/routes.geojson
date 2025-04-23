@@ -10,13 +10,41 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-83.9256, 34.7011],
-          [-83.9198, 34.6934],
-          ...
+          [-83.9211, 34.8700],
+          [-83.7266, 34.6994],
+          [-83.8950, 34.6194]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Six Gap",
+        "color": "#33C3FF"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-83.8049, 34.7061],
+          [-83.9122, 34.6960],
+          [-83.9001, 34.7585]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tail of the Dragon",
+        "color": "#2ECC71"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-83.9193, 35.4667],
+          [-83.6765, 35.5156],
+          [-83.6203, 35.4943]
         ]
       }
     }
-    // More routes...
   ]
 }
-Placeholder for data/routes.geojson
