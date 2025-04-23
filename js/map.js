@@ -1,28 +1,38 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYndtaXN0eSIsImEiOiJjbTl0eTh5eDcwM3dsMmtvbHlwdTJtaTE3In0.y5vcdmYfqHCrTPz3OFyMCg';
-
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/outdoors-v12',
-  center: [-83.9256, 34.7011],
+  center: [-83.9256, 34.7011], // Center on a location in North Georgia
   zoom: 9
 });
 
 // Add zoom controls
 map.addControl(new mapboxgl.NavigationControl());
 
+// Add custom icons for POIs (important for the icon image layers)
 map.on('load', () => {
-  // 👇 Load custom icons for POIs
-  const icons = ['fuel', 'waterfall', 'inn'];
-  icons.forEach(name => {
-    map.loadImage(`assets/icons/${name}.png`, (error, image) => {
-      if (error) throw error;
-      if (!map.hasImage(`${name}-icon`)) {
-        map.addImage(`${name}-icon`, image);
-      }
-    });
+  // Load route images (if custom icons are used in the routes layer)
+  map.loadImage('assets/icons/route.png', (error, image) => {
+    if (error) throw error;
+    map.addImage('route-icon', image);
   });
 
-  // 👇 Load ROUTES GeoJSON
+  map.loadImage('assets/icons/waterfall.png', (error, image) => {
+    if (error) throw error;
+    map.addImage('waterfall-icon', image);
+  });
+
+  map.loadImage('assets/icons/fuel.png', (error, image) => {
+    if (error) throw error;
+    map.addImage('fuel-icon', image);
+  });
+
+  map.loadImage('assets/icons/inn.png', (error, image) => {
+    if (error) throw error;
+    map.addImage('inn-icon', image);
+  });
+
+  // ROUTES
   fetch('data/routes.geojson')
     .then(res => res.json())
     .then(data => {
@@ -38,40 +48,37 @@ map.on('load', () => {
       });
     })
     .catch(err => console.error("Error loading routes.geojson:", err));
-
-  // 👇 Load POIs after a slight delay to make sure icons are loaded
+    
+  // POIs
   fetch('data/pois.geojson')
     .then(res => res.json())
     .then(data => {
       map.addSource('pois', { type: 'geojson', data });
+      map.addLayer({
+        id: 'pois',
+        type: 'symbol',
+        source: 'pois',
+        layout: {
+          'icon-image': ['get', 'type'], // Make sure 'type' in your GeoJSON matches the icon names
+          'icon-size': 1.5,
+          'text-field': ['get', 'name'],
+          'text-offset': [0, 1.5],
+          'text-anchor': 'top'
+        }
+      });
 
-      setTimeout(() => {
-        map.addLayer({
-          id: 'pois',
-          type: 'symbol',
-          source: 'pois',
-          layout: {
-            'icon-image': ['concat', ['get', 'type'], '-icon'],
-            'icon-size': 1.5,
-            'text-field': ['get', 'name'],
-            'text-offset': [0, 1.5],
-            'text-anchor': 'top'
-          }
-        });
+      // POI popups
+      data.features.forEach((feature) => {
+        const { geometry, properties } = feature;
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+          `<strong>${properties.name}</strong><br>${properties.description || ''}`
+        );
 
-        // Add popups + markers
-        data.features.forEach((feature) => {
-          const { geometry, properties } = feature;
-          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-            `<strong>${properties.name}</strong><br>${properties.description || ''}`
-          );
-
-          new mapboxgl.Marker({ color: '#007cbf' })
-            .setLngLat(geometry.coordinates)
-            .setPopup(popup)
-            .addTo(map);
-        });
-      }, 500); // delay to ensure icons are loaded
+        new mapboxgl.Marker({ color: '#007cbf' })
+          .setLngLat(geometry.coordinates)
+          .setPopup(popup)
+          .addTo(map);
+      });
     })
     .catch(err => console.error("Error loading pois.geojson:", err));
 });
