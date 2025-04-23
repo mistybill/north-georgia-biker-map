@@ -1,1 +1,68 @@
-Placeholder for css/style.css
+/* General Reset & Body Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+  background-color: #2f4f4f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Map Container */
+#map {
+  width: 100%;
+  height: 90vh;
+  border: 2px solid #333;
+  border-radius: 12px;
+  margin: 1rem auto;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #2f4f4f;
+  color: white;
+}
+
+/* Info Panel */
+#info-panel {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 250px;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 0.9rem;
+}
+
+/* POI Icons */
+.marker {
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #map {
+    height: 80vh;
+  }
+
+  #info-panel {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    top: 60px;
+  }
+}
