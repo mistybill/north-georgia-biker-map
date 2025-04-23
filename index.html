@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>North Georgia Biker Map</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>North Georgia Biker Map</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/icon.png" type="image/png">
 </head>
 <body>
-    <div id="map" style="width: 100%; height: 100vh;"></div>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="js/main.js"></script>
+  <header>
+    <h1>🗺️ North Georgia Biker Map</h1>
+    <p>Explore The Gauntlet, Six Gap, Tail of the Dragon & more</p>
+  </header>
+
+  <main>
+    <div id="map"></div>
+    <div class="legend">
+      <h3>Map Legend</h3>
+      <ul>
+        <li><img src="assets/icons/route.png" /> Route</li>
+        <li><img src="assets/icons/waterfall.png" /> Waterfall</li>
+        <li><img src="assets/icons/fuel.png" /> Fuel</li>
+        <li><img src="assets/icons/inn.png" /> Misty Mountain Inn HQ</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Hosted by <a href="https://mistymountaininn.com" target="_blank">Misty Mountain Inn & Cottages</a></p>
+  </footer>
+
+  <!-- Map & Logic Scripts -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.16.1/mapbox-gl.js"></script>
+  <script src="js/map.js"></script>
 </body>
 </html>
+
