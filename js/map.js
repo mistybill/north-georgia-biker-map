@@ -12,22 +12,22 @@ map.addControl(new mapboxgl.NavigationControl());
 // Add custom icons for POIs (important for the icon image layers)
 map.on('load', () => {
   // Load route images (if custom icons are used in the routes layer)
-  map.loadImage('assets/icons/route.png', (error, image) => {
+  map.loadImage('assets/icons/route.jpg', (error, image) => {
     if (error) throw error;
     map.addImage('route-icon', image);
   });
 
-  map.loadImage('assets/icons/waterfall.png', (error, image) => {
+  map.loadImage('assets/icons/waterfall.jpg', (error, image) => {
     if (error) throw error;
     map.addImage('waterfall-icon', image);
   });
 
-  map.loadImage('assets/icons/fuel.png', (error, image) => {
+  map.loadImage('assets/icons/fuel.jpg', (error, image) => {
     if (error) throw error;
     map.addImage('fuel-icon', image);
   });
 
-  map.loadImage('assets/icons/inn.png', (error, image) => {
+  map.loadImage('assets/icons/inn.jpg', (error, image) => {
     if (error) throw error;
     map.addImage('inn-icon', image);
   });
