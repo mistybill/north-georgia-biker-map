@@ -1,1 +1,18 @@
-Placeholder for data/pois.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Helton Creek Falls",
+        "type": "waterfall",
+        "description": "A scenic stop with hiking and photo ops."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.858, 34.751]
+      }
+    }
+    // More POIs...
+  ]
+}
