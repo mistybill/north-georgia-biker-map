@@ -51,7 +51,7 @@ map.on('load', () => {
       data.features.forEach((feature) => {
         const { geometry, properties } = feature;
         const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-          `<strong>${properties.name}</strong><br>${properties.description || ''}`
+          <strong>${properties.name}</strong><br>${properties.description || ''}
         );
 
         new mapboxgl.Marker({ color: '#007cbf' })
