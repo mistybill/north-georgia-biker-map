@@ -1,1 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Gauntlet",
+        "color": "#FF5733"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-83.9256, 34.7011],
+          [-83.9198, 34.6934],
+          ...
+        ]
+      }
+    }
+    // More routes...
+  ]
+}
 Placeholder for data/routes.geojson
