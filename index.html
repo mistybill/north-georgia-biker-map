@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +8,13 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="assets/icon.png" type="image/png">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.16.1/mapbox-gl.css" rel="stylesheet" />
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.16.1/mapbox-gl.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.16.1/mapbox-gl.js"></script>
+  <style>
+    #map {
+      width: 100%;
+      height: 600px; /* Adjust map size */
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -16,7 +23,7 @@
   </header>
 
   <main>
-    <div id="map"></div>
+    <div id="map">Loading map...</div> <!-- Added fallback text -->
     <div class="legend">
       <h3>Map Legend</h3>
       <ul>
@@ -33,8 +40,6 @@
   </footer>
 
   <!-- Map & Logic Scripts -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.16.1/mapbox-gl.js"></script>
-  <script src="js/map.js"></script>
+  <script src="js/map.js"></script> <!-- Correct link to your JS file -->
 </body>
 </html>
-
