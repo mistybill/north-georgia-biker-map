@@ -13,20 +13,21 @@ map.addControl(new mapboxgl.NavigationControl());
 map.on('load', () => {
   // ROUTES
   fetch('data/routes.geojson')
-    .then(res => res.json())
-    .then(data => {
-      map.addSource('routes', { type: 'geojson', data });
-      map.addLayer({
-        id: 'routes',
-        type: 'line',
-        source: 'routes',
-        paint: {
-          'line-color': ['get', 'color'],
-          'line-width': 4
-        }
-      });
+  .then(res => res.json())
+  .then(data => {
+    map.addSource('routes', { type: 'geojson', data });
+    map.addLayer({
+      id: 'routes',
+      type: 'line',
+      source: 'routes',
+      paint: {
+        'line-color': ['get', 'color'],
+        'line-width': 4
+      }
     });
-
+  })
+  .catch(err => console.error("Error loading routes.geojson:", err));
+    
   // POIs
   fetch('data/pois.geojson')
     .then(res => res.json())
@@ -49,8 +50,8 @@ map.on('load', () => {
       data.features.forEach((feature) => {
         const { geometry, properties } = feature;
         const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-          <strong>${properties.name}</strong><br>${properties.description || ''}
-        );
+  `<strong>${properties.name}</strong><br>${properties.description || ''}`
+);
 
         new mapboxgl.Marker({ color: '#007cbf' })
           .setLngLat(geometry.coordinates)
